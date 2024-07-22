@@ -9,7 +9,7 @@ def validateSubsequence(array, sequence):
 
 # Sample test case
 array = [5, 1, 22, 25, 6, 7, 8, 10]
-sequence = [1, 6, 10]
+sequence = [1, 6,8, 10]
 
 # Validate subsequence
 print(validateSubsequence(array, sequence))  # Should return True
