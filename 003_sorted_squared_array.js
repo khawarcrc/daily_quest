@@ -6,25 +6,38 @@ function sortedSquaredArray(array) {
     let smallerValueIdx = 0;
     let largerValueIdx = array.length - 1;
     
+    console.log("Initial array:", array);
+    console.log("Starting process to create sorted squares array...");
+
     // Iterate through the array in reverse order
     for (let idx = array.length - 1; idx >= 0; idx--) {
         // Get the current values at the pointers
         const smallerValue = array[smallerValueIdx];
         const largerValue = array[largerValueIdx];
         
+        console.log(`\nIteration ${array.length - idx}:`);
+        console.log(`Comparing absolute values | Smaller: ${Math.abs(smallerValue)} | Larger: ${Math.abs(largerValue)}`);
+        
         // Compare the absolute values of the current elements
         if (Math.abs(smallerValue) > Math.abs(largerValue)) {
             // If the smaller value has a larger absolute value, square it and place it at the current index
             sortedSquares[idx] = smallerValue * smallerValue;
+            console.log(`Placing ${sortedSquares[idx]} at index ${idx}`);
             // Move the smallerValueIdx pointer to the right
             smallerValueIdx++;
+            console.log(`Moving smallerValueIdx to ${smallerValueIdx}`);
         } else {
             // If the larger value has a larger absolute value, square it and place it at the current index
             sortedSquares[idx] = largerValue * largerValue;
+            console.log(`Placing ${sortedSquares[idx]} at index ${idx}`);
             // Move the largerValueIdx pointer to the left
             largerValueIdx--;
+            console.log(`Moving largerValueIdx to ${largerValueIdx}`);
         }
     }
+    
+    // Log the final sorted array of squared values
+    console.log("\nFinal sorted squares array:", sortedSquares);
     
     // Return the sorted array of squared values
     return sortedSquares;
@@ -33,7 +46,44 @@ function sortedSquaredArray(array) {
 // Test the function with an example array
 const array = [-7, -3, 1, 9, 12];
 const result = sortedSquaredArray(array);
-console.log(result);  // Output should be [1, 9, 49, 81, 144]
+console.log("Result:", result);  // Output should be [1, 9, 49, 81, 144]
+
+// function sortedSquaredArray(array) {
+//     // Create a new array filled with zeros, same length as the input array
+//     const sortedSquares = new Array(array.length).fill(0);
+    
+//     // Initialize two pointers: one at the start and one at the end of the array
+//     let smallerValueIdx = 0;
+//     let largerValueIdx = array.length - 1;
+    
+//     // Iterate through the array in reverse order
+//     for (let idx = array.length - 1; idx >= 0; idx--) {
+//         // Get the current values at the pointers
+//         const smallerValue = array[smallerValueIdx];
+//         const largerValue = array[largerValueIdx];
+        
+//         // Compare the absolute values of the current elements
+//         if (Math.abs(smallerValue) > Math.abs(largerValue)) {
+//             // If the smaller value has a larger absolute value, square it and place it at the current index
+//             sortedSquares[idx] = smallerValue * smallerValue;
+//             // Move the smallerValueIdx pointer to the right
+//             smallerValueIdx++;
+//         } else {
+//             // If the larger value has a larger absolute value, square it and place it at the current index
+//             sortedSquares[idx] = largerValue * largerValue;
+//             // Move the largerValueIdx pointer to the left
+//             largerValueIdx--;
+//         }
+//     }
+    
+//     // Return the sorted array of squared values
+//     return sortedSquares;
+// }
+
+// // Test the function with an example array
+// const array = [-7, -3, 1, 9, 12];
+// const result = sortedSquaredArray(array);
+// console.log(result);  // Output should be [1, 9, 49, 81, 144]
 
 
 
