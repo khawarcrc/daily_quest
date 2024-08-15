@@ -1,53 +1,4 @@
-# # Constants
-# HOME_TEAM_WON = 1  # This constant represents the result when the home team wins.
 
-# # Function to determine the tournament winner
-# def tournamentWinner(competitions, results): 
-#     # Initialize the current best team as an empty string
-#     currentBestTeam = ""
-#     # Initialize the scores dictionary with the current best team having 0 points
-#     scores = {currentBestTeam: 0}
-    
-#     # Loop through each competition and corresponding result
-#     for idx, competition in enumerate(competitions): 
-#         result = results[idx]  # Get the result of the current competition
-#         homeTeam, awayTeam = competition  # Unpack the home and away teams
-        
-#         # Determine the winning team based on the result
-#         winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
-        
-#         # Update the score of the winning team
-#         updateScores(winningTeam, 3, scores)
-        
-#         # Check if the current winning team's score is greater than the current best team's score
-#         if scores[winningTeam] > scores[currentBestTeam]:
-#             # Update the current best team
-#             currentBestTeam = winningTeam
-    
-#     # Return the team with the highest score at the end of the tournament
-#     return currentBestTeam
-
-# # Function to update the scores
-# def updateScores(team, points, scores): 
-#     # If the team is not already in the scores dictionary, add it with a score of 0
-#     if team not in scores: 
-#         scores[team] = 0
-        
-#     # Add the points to the team's score
-#     scores[team] += points          
-
-# # Sample input data
-# competitions = [
-#     ["HTML", "C#"],  # Competition 1: Team A (home) vs Team B (away)
-#     ["C#", "Python"],  # Competition 2: Team B (home) vs Team C (away)
-#     ["Python", "HTML"]   # Competition 3: Team C (home) vs Team A (away)
-# ]
-
-# results = [0, 0, 1]  # Results: Team A wins, Team C wins, Team C wins
-
-# # Call the function and print the result
-# winner = tournamentWinner(competitions, results)
-# print("The winning team is:", winner)  # Output the winning team
 
 
 # Constants
@@ -113,6 +64,58 @@ results = [0, 0, 1]  # Results: Team A wins, Team C wins, Team C wins
 # Call the function and print the result
 winner = tournamentWinner(competitions, results)
 print("The winning team is:", winner)  # Output the winning team
+
+
+# # Constants
+# HOME_TEAM_WON = 1  # This constant represents the result when the home team wins.
+
+# # Function to determine the tournament winner
+# def tournamentWinner(competitions, results): 
+#     # Initialize the current best team as an empty string
+#     currentBestTeam = ""
+#     # Initialize the scores dictionary with the current best team having 0 points
+#     scores = {currentBestTeam: 0}
+    
+#     # Loop through each competition and corresponding result
+#     for idx, competition in enumerate(competitions): 
+#         result = results[idx]  # Get the result of the current competition
+#         homeTeam, awayTeam = competition  # Unpack the home and away teams
+        
+#         # Determine the winning team based on the result
+#         winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+        
+#         # Update the score of the winning team
+#         updateScores(winningTeam, 3, scores)
+        
+#         # Check if the current winning team's score is greater than the current best team's score
+#         if scores[winningTeam] > scores[currentBestTeam]:
+#             # Update the current best team
+#             currentBestTeam = winningTeam
+    
+#     # Return the team with the highest score at the end of the tournament
+#     return currentBestTeam
+
+# # Function to update the scores
+# def updateScores(team, points, scores): 
+#     # If the team is not already in the scores dictionary, add it with a score of 0
+#     if team not in scores: 
+#         scores[team] = 0
+        
+#     # Add the points to the team's score
+#     scores[team] += points          
+
+# # Sample input data
+# competitions = [
+#     ["HTML", "C#"],  # Competition 1: Team A (home) vs Team B (away)
+#     ["C#", "Python"],  # Competition 2: Team B (home) vs Team C (away)
+#     ["Python", "HTML"]   # Competition 3: Team C (home) vs Team A (away)
+# ]
+
+# results = [0, 0, 1]  # Results: Team A wins, Team C wins, Team C wins
+
+# # Call the function and print the result
+# winner = tournamentWinner(competitions, results)
+# print("The winning team is:", winner)  # Output the winning team
 
 
 
