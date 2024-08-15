@@ -26,3 +26,13 @@ coins = [1, 1, 3, 4, 9]
 print("Coins:", coins)
 result = nonConstructibleChange(coins)
 print(f"Minimum change that cannot be created: {result}")
+
+
+
+# 1. Sort the coins in ascending order.
+# 2. Initialize a variable to track the maximum change that can be created so far.
+# 3. Iterate through the coins:
+#    - If a coin is larger than the next possible change value (currentChange + 1),
+#      identify and return the smallest amount of change that cannot be created.
+#    - Otherwise, add the coin to the current change value.
+# 4. If no gaps are found, return the next consecutive change value that cannot be created.
