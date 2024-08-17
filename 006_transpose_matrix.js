@@ -55,6 +55,8 @@ let matrix = [
 // Print the original matrix
 console.log("Original Matrix:");
 matrix.forEach((row) => console.log(row));
+// matrix length
+console.log("matrix length", matrix.length);
 
 // Execute the transposeMatrix function and store the result
 let transposed = transposeMatrix(matrix);
