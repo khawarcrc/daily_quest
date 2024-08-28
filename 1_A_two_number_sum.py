@@ -1,3 +1,12 @@
+# Sort the array in ascending order to enable a two-pointer approach.
+# Initialize two pointers: 'left' at the start and 'right' at the end of the array.
+# Iterate while 'left' pointer is less than 'right' pointer to find a pair that sums to the target.
+# Calculate the sum of the values at the 'left' and 'right' pointers.
+# If the current sum equals the target sum, return the pair of numbers.
+# If the current sum is less than the target sum, move the 'left' pointer to the right to increase the sum.
+# If the current sum is greater than the target sum, move the 'right' pointer to the left to decrease the sum.
+# If no such pair is found after the loop ends, return an empty list.
+
 def twoNumberSum(array, targetSum):
     # Step 1: Sort the input array in ascending order.
     array.sort()
