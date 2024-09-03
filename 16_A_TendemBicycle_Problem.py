@@ -1,3 +1,24 @@
+# Problem Explanation
+# Objective: Calculate the total speed of a tandem bicycle team based on the speeds of riders wearing red and blue shirts.
+
+# Conditions:
+# - Riders can be paired from the red and blue shirt groups.
+# - You can either maximize the total speed or minimize it based on the fastest flag.
+
+# Approach to Solve the Problem
+
+# Step 1: Sort the Speeds
+# - Sort the redShirtSpeeds and blueShirtSpeeds arrays in ascending order to align riders from slowest to fastest.
+
+# Step 2: Adjust for Minimizing Speed (if applicable)
+# - If fastest is False, reverse the redShirtSpeeds array to ensure the slowest red shirt riders pair with the fastest blue shirt riders to minimize the total speed.
+
+# Step 3: Calculate Total Speed
+# - Pair each red shirt rider with a blue shirt rider.
+# - For each pair, choose the maximum speed of the two riders.
+# - Sum these maximum speeds to get the total speed.
+
+
 def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
     # Sort both speed arrays in ascending order
     redShirtSpeeds.sort()

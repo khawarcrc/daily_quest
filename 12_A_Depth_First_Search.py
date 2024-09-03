@@ -1,3 +1,29 @@
+# Problem Explanation
+# Objective: Implement a depth-first search (DFS) algorithm for a tree structure.
+# Conditions:
+# - The tree is represented by nodes where each node can have multiple children.
+# - Traverse the entire tree, starting from the root, and visit each node in a depth-first manner.
+
+# Approach to Solve the Problem
+
+# Step 1: Node Initialization
+# - Create a Node class with a name and a list of children.
+# - Implement methods to add children and perform depth-first search.
+
+# Step 2: Add Children
+# - Use the addChild method to add child nodes to a given parent node.
+
+# Step 3: Depth-First Search (DFS)
+# - Start DFS from the root node.
+# - Traverse to each child node recursively, visiting nodes from top to bottom.
+# - Append each visited node's name to an array to keep track of the traversal order.
+
+# Step 4: Print and Return
+# - Print the current state of the DFS array during traversal for debugging.
+# - Print statements to indicate when a node is visited, when diving deeper into a child node, and when backtracking.
+# - Return the final DFS array showing the order in which nodes were visited.
+
+
 class Node: 
     def __init__(self, name): 
         # Initialize the node with a name and an empty list of children
