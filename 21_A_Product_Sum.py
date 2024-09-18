@@ -13,7 +13,8 @@
 # 5. After iterating through all elements, multiply the `sum` by the current multiplier.
 # 6. Return the final product sum.
 
-def productSum(array, multiplier=1):
+
+def productSum(array, multiplier = 1):
     # Initialize sum to 0 for the current level
     sum = 0
     # Iterate over each element in the array
@@ -26,6 +27,7 @@ def productSum(array, multiplier=1):
             sum += element
     # Return the total sum multiplied by the current multiplier (based on depth level)
     return sum * multiplier
+
 
 # Dummy data for testing
 # Example array: [5, 2, [7, -1], 3, [6, [-13, 8], 4]]
