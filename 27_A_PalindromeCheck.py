@@ -1,3 +1,10 @@
+# Problem Statement:
+# Given a string, write a function to check if it is a palindrome.
+# A palindrome is a word, phrase, or sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.
+# The function should return True if the string is a palindrome, and False if it is not.
+# The algorithm will compare characters from the beginning and the end of the string, moving towards the center, to determine if the string is the same in both directions.
+
+
 def isPalindrome(string):
     # Initialize leftIndex to the first character (index 0)
     leftIndex = 0
