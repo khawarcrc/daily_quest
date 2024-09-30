@@ -1,13 +1,20 @@
-# 1. Initialization:
-#    a. Create a new list 'sortedSquares' to store the squared values.
-#    b. Initialize two pointers (smallerValueIdx and largerValueIdx) at the start and end of the array.
+# Problem Statement:
+# Given a sorted array of integers, both negative and positive, write a function that returns a new array containing 
+# the squares of each number from the original array, also sorted in non-decreasing order.
+# The input array is sorted, but squaring the numbers can disrupt the order, especially with negative numbers.
 
-# 2. Reverse Iteration:
-#    a. Iterate through the array in reverse order, from the last index to the first.
+# Steps to Solve:
+# 1. Create an empty array (or list) to store the squared values, initialized with zeros and of the same length as the input array.
+# 2. Use two pointers:
+#    a. One pointer at the start of the array (for smaller values).
+#    b. One pointer at the end of the array (for larger values).
+# 3. Iterate through the array in reverse order (starting from the largest index) because the largest squared value will be placed at the highest index.
+# 4. During each iteration, compare the absolute values of the elements at both pointers:
+#    a. If the absolute value of the number at the start pointer is greater, square it and place it at the current index, then move the start pointer to the right.
+#    b. If the absolute value of the number at the end pointer is greater, square it and place it at the current index, then move the end pointer to the left.
+# 5. Repeat the comparison and placement until all elements have been squared and placed in the new array in sorted order.
+# 6. Return the sorted array of squared values.
 
-# 3. Compare and Fill:
-#    a. Compare the absolute values of the elements at the pointers.
-#    b. Place the larger square value at the current index and move the corresponding pointer inward.
 
 
 # 4. Return the result:
