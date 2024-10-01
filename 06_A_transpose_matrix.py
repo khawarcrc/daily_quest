@@ -1,27 +1,18 @@
-# 1. Initialize Transposed Matrix:
-# An empty list `transposeMatrix` is initialized to store the transposed version of the input matrix.
+# Problem Statement:
+# Given a matrix (a list of lists), the goal is to transpose the matrix.
+# Transposing a matrix means converting its rows into columns and vice versa.
 
-# 2. Iterate Over Columns:
-# The outer loop iterates over each column index (`col`) of the original matrix.
-
-# 3. Initialize New Row:
-# For each column, a new row (`newRow`) is initialized to collect elements that will form the corresponding row in the transposed matrix.
-
-# 4. Iterate Over Rows:
-# The inner loop iterates over each row index (`row`) of the original matrix.
-
-# 5. Element Collection:
-# Inside the inner loop, the element at the current `[row][col]` position is taken from the original matrix and appended to `newRow`.
-
-# 6. Form and Append New Row:
-# After collecting all elements for the current column, `newRow` (which is now a complete row for the transposed matrix) is appended to `transposeMatrix`.
-
-# 7. Return Transposed Matrix:
-# Once all columns are processed, the fully constructed `transposeMatrix` is returned.
-
-# 8. Print the Original and Transposed Matrix:
-# The original matrix is printed.
-# The `transposeMatrix` function is executed, and the resulting transposed matrix is printed.
+# Steps to Solve the Problem:
+# 1. Initialize an empty list to store the transposed matrix.
+# 2. Iterate over each column index in the original matrix:
+#    - The outer loop will run for the number of columns in the original matrix.
+# 3. For each column, initialize a new row for the transposed matrix.
+# 4. Iterate over each row index in the original matrix:
+#    - The inner loop will run for the number of rows in the original matrix.
+# 5. Append the element from the current row and the current column 
+#    of the original matrix to the new row being formed for the transposed matrix.
+# 6. After completing the inner loop, append the new row to the transposed matrix.
+# 7. Return the transposed matrix after completing the outer loop.
 
 
 def transposeMatrix(matrix):
