@@ -21,6 +21,7 @@ function transposeMatrix(matrix) {
 
   // Iterate over each column index in the matrix
   for (let col = 0; col < matrix[0].length; col++) {
+  
     // Initialize a new row for the transposed matrix
     let newRow = [];
     console.log(`\nProcessing column ${col + 1}:`);

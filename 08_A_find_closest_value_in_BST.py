@@ -1,22 +1,27 @@
-# Overall Process Explained in Points:
+# Problem Statement:
+# Given a Binary Search Tree (BST) and a target value, write a function to find the closest 
+# value to the target in the BST. The closest value is defined as the value with the smallest 
+# absolute difference from the target. If there are multiple closest values, return any of them.
 
-# 1. Initialize at the Root Node:
-#    - Start the traversal from the root node of the BST.
-#    - Set an initial closest value to infinity (float("inf")).
+# Steps to Solve:
+# 1. Define a helper function that takes the current node of the tree, the target value, 
+#    and the current closest value as parameters.
+#
+# 2. Initialize the current node to the root of the BST.
+#
+# 3. Traverse the tree using a while loop until there are no more nodes to check:
+#    - If the absolute difference between the target and the current closest value is greater 
+#      than the absolute difference between the target and the current node's value, update 
+#      the closest value to the current node's value.
+#    
+#    - If the target is less than the current node's value, move to the left child.
+#    
+#    - If the target is greater than the current node's value, move to the right child.
+#    
+#    - If the current node's value equals the target, return it as it is the closest possible value.
+#
+# 4. Return the closest value found after traversing the tree.
 
-# 2. Traverse the Tree:
-#    - Compare the target value with the current node's value.
-#    - If the current node's value is closer to the target than the previously recorded closest value, update the closest value.
-
-# 3. Decide the Direction of Traversal:
-#    - Move to the left child if the target is smaller than the current node's value (since left child values are smaller).
-#    - Move to the right child if the target is larger than the current node's value (since right child values are larger).
-
-# 4. Handle Exact Match:
-#    - If the current node's value matches the target exactly, it is the closest possible value, so terminate the search.
-
-# 5. Return the Closest Value:
-#    - After the traversal, return the closest value found during the search.
 
 
 
