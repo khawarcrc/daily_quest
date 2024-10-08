@@ -51,4 +51,4 @@ function firstDuplicateValue(array) {
 
 // Dummy data for testing
 const testArray = [5, 3, 4, 5, 2, 2, 3, 1];
-console.log("First duplicate value:", firstDuplicateValue(testArray)); // Output will be 5
+console.log("First duplicate value:", firstDuplicateValue(testArray)); // Output will be 5 
