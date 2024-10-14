@@ -4,28 +4,52 @@
 # appears more than once in the array. If a duplicate exists, the function 
 # should return the value of the first duplicate that occurs. If no duplicates 
 # are found, the function should return -1.
-
-# Steps to Solve the Problem:
-# 1. Initialize a variable `minimumSecondIndex` to the length of the array 
-#    to keep track of the index of the second occurrence of any duplicate.
-# 
-# 2. Loop through the array with an index `i` from 0 to the length of the 
-#    array:
-#    - Retrieve the current value at index `i`.
-#    
-# 3. For each value at index `i`, create an inner loop with an index `j` 
-#    that starts from `i + 1` to the end of the array:
-#    - Retrieve the value at index `j`.
-#    
-# 4. Compare the current value (from index `i`) with the value from index `j`:
-#    - If the values are equal (indicating a duplicate), update `minimumSecondIndex` 
-#      with the minimum of the current `minimumSecondIndex` and the index `j`.
 #
-# 5. After both loops, check if `minimumSecondIndex` is still equal to the length of 
-#    the array:
-#    - If it is, return -1 (indicating no duplicates were found).
-#    
-# 6. If a duplicate was found, return the value at `minimumSecondIndex`.
+# The challenge is not only to find duplicates but to identify the one that 
+# appears first, i.e., the one that occurs with the minimum second index in 
+# the array. If there are no duplicate values, the function should return -1.
+
+# Theory:
+# The idea behind this solution is to loop through the array and compare 
+# each element with the elements that come after it. If a duplicate is found, 
+# the index of the second occurrence is stored. By the end of the loop, 
+# the function will know the first duplicate by identifying the element with 
+# the smallest second occurrence index.
+
+# To achieve this:
+# - We initialize a variable `minimumSecondIndex` to the length of the array, 
+#   which serves as a placeholder to track the index of the second occurrence 
+#   of a duplicate value.
+# - We loop over the array starting from the first element, and for each element, 
+#   we compare it with the rest of the elements in the array (using a nested loop).
+# - If a duplicate is found (i.e., two elements are the same), we compare the 
+#   current second occurrence index (`j`) with the existing `minimumSecondIndex` 
+#   and update it if the current index is smaller.
+# - After the loop, if `minimumSecondIndex` has not been updated (i.e., no 
+#   duplicates were found), we return -1. Otherwise, we return the value at 
+#   `minimumSecondIndex`.
+
+# This solution uses a brute-force approach, meaning that it will compare 
+# every element with every other element in the array, resulting in a time 
+# complexity of O(n^2), where n is the length of the array. This is not the 
+# most efficient solution but is easy to understand and implement.
+
+# The overall algorithm involves:
+# - Two nested loops: The outer loop iterates through each element of the array, 
+#   and the inner loop checks for any duplicates by comparing the element at 
+#   the outer loop index with the subsequent elements in the array.
+# - If a duplicate is found, the second occurrence index is compared with the 
+#   minimum index found so far to ensure that the first duplicate (with the 
+#   smallest second index) is returned.
+
+# Alternative efficient solutions could use a set or dictionary (hashmap) 
+# to track the first occurrence of each element, allowing for a linear time 
+# complexity O(n) solution.
+
+
+
+# Solution Implementation:
+
 
 
 def firstDuplicateValue(array):

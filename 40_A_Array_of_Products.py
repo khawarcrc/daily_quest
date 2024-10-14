@@ -1,16 +1,47 @@
 # Problem Statement:
 # Given an array of integers, return a new array where each element at index `i` is the product
-# of all the numbers in the original array except the one at index `i`.
-# The solution should not use division to calculate the result.
+# of all the numbers in the original array except the one at index `i`. In other words, 
+# for each index in the output array, the value should be the product of all the elements in 
+# the input array except the element at that index. 
+# The challenge is that you cannot use division to calculate the result.
+
+# The task is to solve the problem without dividing the total product of all the elements by the 
+# element at index `i`. Instead, you must multiply all the elements except the one at `i` directly.
+
+# Example:
+# Input:  [1, 2, 3, 4]
+# Output: [24, 12, 8, 6]
+# Explanation:
+# For index 0, the product of all numbers except 1 is 2 * 3 * 4 = 24.
+# For index 1, the product of all numbers except 2 is 1 * 3 * 4 = 12.
+# For index 2, the product of all numbers except 3 is 1 * 2 * 4 = 8.
+# For index 3, the product of all numbers except 4 is 1 * 2 * 3 = 6.
 
 # Steps to Solve the Problem:
-# 1. Create an empty array called `products` of the same length as the input array, initialized with 1.
-# 2. Loop through each element in the input array (using index `i`).
-#    - For each element at index `i`, initialize a variable `runningProduct` to 1.
-#    - Then, loop through the input array again (using index `j`).
-#       - If `i` is not equal to `j` (i.e., skip the current element), multiply `runningProduct` by `array[j]`.
-#    - After completing the inner loop, assign the value of `runningProduct` to `products[i]`.
-# 3. Return the `products` array as the final result.
+# 1. Create a new array called `products` of the same length as the input array, initialized with 1s.
+#    This array will store the final result where each element is the product of all other elements 
+#    except the one at the corresponding index in the input array.
+
+# 2. Loop through each element of the input array using index `i`. This loop will process each 
+#    element and calculate the product for the current index `i`.
+#    - For each element at index `i`, initialize a variable `runningProduct` to 1, which will 
+#      temporarily store the product of all other elements except the current element.
+
+# 3. Loop through the array again using index `j` to multiply all elements except the one 
+#    at index `i`:
+#    - If `i` is not equal to `j` (i.e., skip the current element at `i`), multiply `runningProduct` 
+#      by `array[j]`, accumulating the product of all other elements.
+#    - After completing the inner loop, assign the value of `runningProduct` to `products[i]`. 
+#      This ensures that for each index `i`, the correct product is stored.
+
+# 4. Once all the iterations are complete, return the `products` array as the final result.
+
+# This brute-force solution involves two nested loops, which results in a time complexity of O(n^2). 
+# There are more optimized approaches using prefix and suffix products to solve this problem in 
+# linear time, but this approach is straightforward and easy to understand for small input sizes.
+
+# Solution Implementation:
+
 
 
 def arrayOfProducts(array):
