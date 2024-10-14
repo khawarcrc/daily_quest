@@ -1,32 +1,43 @@
 # Problem Statement:
-# Given a 2D array (matrix), write a function that returns a list of its elements in spiral order.
-# Spiral order means starting at the top-left corner of the matrix and traversing it in a clockwise
-# direction, layer by layer, until all elements are visited.
+# Given a 2D array (matrix), the task is to traverse and return a list of its elements in spiral order.
+# Spiral order means starting from the top-left corner of the matrix and visiting the elements in a 
+# clockwise direction, layer by layer, until all elements are visited.
+
+# The traversal starts from the outermost elements and moves inward, visiting the matrix layer by layer.
+# Each layer consists of a top row, rightmost column, bottom row (if applicable), and leftmost column (if applicable).
+# The matrix can be of any size, including rectangular or square shapes, and may contain any number of rows and columns.
+
+# Example:
+# Input:  [[1, 2, 3, 4], 
+#          [5, 6, 7, 8], 
+#          [9, 10, 11, 12], 
+#          [13, 14, 15, 16]]
+# Output: [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+# Explanation:
+# The elements are visited layer by layer, starting from the top-left corner:
+# 1. First, traverse the top row from left to right: 1, 2, 3, 4.
+# 2. Then, traverse the rightmost column from top to bottom: 8, 12, 16.
+# 3. Next, traverse the bottom row from right to left: 15, 14, 13.
+# 4. Finally, traverse the leftmost column from bottom to top: 9, 5.
+# Continue this process inward until all elements are visited.
 
 # Steps to Solve the Problem:
-
-# 1. Initialize an empty list to store the result of the spiral traversal.
-# 2. Define four variables to represent the boundaries of the current layer:
-#    - `startRow`: The index of the top row of the current layer.
-#    - `endRow`: The index of the bottom row of the current layer.
-#    - `startCol`: The index of the leftmost column of the current layer.
-#    - `endCol`: The index of the rightmost column of the current layer.
-# 3. While the boundaries haven't crossed (i.e., `startRow <= endRow` and `startCol <= endCol`):
-#    a. Traverse the top row from left to right (between `startCol` and `endCol`),
-#       and append the elements to the result list.
-#    b. Traverse the rightmost column from top to bottom (between `startRow+1` and `endRow`),
-#       and append the elements to the result list.
-#    c. If there are remaining rows (i.e., `startRow < endRow`), traverse the bottom row from right to left
-#       (between `endCol-1` and `startCol`), and append the elements to the result list.
-#    d. If there are remaining columns (i.e., `startCol < endCol`), traverse the leftmost column from bottom to top
-#       (between `endRow-1` and `startRow+1`), and append the elements to the result list.
-# 4. After traversing a full layer, move the boundaries inward:
-#    a. Increment `startRow` by 1 to exclude the top row.
-#    b. Decrement `endRow` by 1 to exclude the bottom row.
-#    c. Increment `startCol` by 1 to exclude the leftmost column.
-#    d. Decrement `endCol` by 1 to exclude the rightmost column.
+# 1. Initialize an empty list `result` to store the elements in spiral order.
+# 2. Define the boundaries of the current layer to be traversed:
+#    - `startRow`: Index of the top row of the current layer.
+#    - `endRow`: Index of the bottom row of the current layer.
+#    - `startCol`: Index of the leftmost column of the current layer.
+#    - `endCol`: Index of the rightmost column of the current layer.
+# 3. While the `startRow` is less than or equal to `endRow` and `startCol` is less than or equal to `endCol`:
+#    a. Traverse the top row from left to right between `startCol` and `endCol`, and append the elements to `result`.
+#    b. Traverse the rightmost column from top to bottom between `startRow + 1` and `endRow`, and append the elements to `result`.
+#    c. If there are remaining rows, traverse the bottom row from right to left between `endCol - 1` and `startCol`, and append the elements to `result`.
+#    d. If there are remaining columns, traverse the leftmost column from bottom to top between `endRow - 1` and `startRow + 1`, and append the elements to `result`.
+# 4. After traversing one full layer, move the boundaries inward by adjusting the indices of `startRow`, `endRow`, `startCol`, and `endCol` to process the next inner layer.
 # 5. Repeat the process until all elements in the matrix have been traversed.
-# 6. Return the list containing the elements in spiral order.
+# 6. Finally, return the `result` list containing the matrix elements in spiral order.
+
+# Solution Implementation:
 
 
 def spiralTraverse(array):
