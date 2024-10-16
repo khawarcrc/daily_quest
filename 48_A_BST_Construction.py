@@ -144,7 +144,8 @@ class BST:
                         currentNode.left = currentNode.right.left 
                         currentNode.right = currentNode.right.right 
                     else: 
-                        currentNode.value = None  # Case where tree becomes empty
+                        pass
+                        # currentNode.value = None  # Case where tree becomes empty
                 elif parentNode.left == currentNode:  
                     # Case where the node to be removed is the left child
                     parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right 
