@@ -20,7 +20,8 @@
 #      - `key`: Stores the value of the node, which is used for comparisons.
 #      - `left`: Points to the left child of the node, initialized as `None` (indicating no left child).
 #      - `right`: Points to the right child of the node, initialized as `None` (indicating no right child).
-#    - Each node is part of the BST and maintains the tree's structure, where the left child holds smaller values than the node’s key, and the right child holds larger values.
+#    - Each node is part of the BST and maintains the tree's structure, where the left child holds smaller 
+#       values than the node’s key, and the right child holds larger values.
 
 # 2. **BinarySearchTree Class**:
 #    - The `BinarySearchTree` class manages the overall tree, starting with the `root`, which represents the top node of the BST.
@@ -52,7 +53,8 @@
 #    - The deletion process handles three cases:
 #      1. **Node is a Leaf**: If the node to be deleted has no children, it is simply removed by returning `None` from the recursive call.
 #      2. **Node has One Child**: If the node has only one child, the node is replaced by its child.
-#      3. **Node has Two Children**: If the node has two children, the method finds the inorder successor (the smallest node in the right subtree), replaces the node’s key with the successor’s key, and then deletes the successor node. This ensures that the tree remains valid after deletion.
+#      3. **Node has Two Children**: If the node has two children, the method finds the inorder successor (the smallest node in the right subtree)
+#         - replaces the node’s key with the successor’s key, and then deletes the successor node. This ensures that the tree remains valid after deletion.
 #    - The method checks for an empty tree (`root` is `None`) before attempting deletion, and if the key is not found, the tree remains unchanged.
 
 # 6. **Inorder Traversal**:
