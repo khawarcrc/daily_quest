@@ -8,6 +8,7 @@ class TreeNode {
 }
 
 // Function to perform in-order traversal (Left, Root, Right)
+// in-order traversal (left → root → right)
 function inOrderTraverse(tree, array) {
     // Base case: if the current node is null (leaf node's child)
     if (tree !== null) {

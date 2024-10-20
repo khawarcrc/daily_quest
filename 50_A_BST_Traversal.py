@@ -27,7 +27,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
-
+# in-order traversal (left → root → right)
 def inOrderTraverse(tree, array):
     # Base case: if the current node is None (leaf node's child)
     if tree is not None:
