@@ -10,29 +10,44 @@
 # 3. Recursively visit the right subtree.
 
 # Theory to Solve the Problem:
-# ----------------------------
-# 1. **Base Case**:
-#    - If the list of pre-order values is empty, the function should return `None`, indicating the current subtree is empty.
+# 1. A Binary Search Tree (BST) class is defined with an initializer method (__init__) to represent each node.
+#    Each node contains a value, a left child (left subtree), and a right child (right subtree).
 
-# 2. **Identify the Root**:
-#    - The first element in the pre-order traversal is always the root of the current subtree.
+# 2. The 'reconstructBst' function is defined, which takes a list of pre-order traversal values as input.
+#    This function is responsible for reconstructing a BST from the given pre-order traversal values.
 
-# 3. **Finding the Boundary Between Subtrees**:
-#    - Traverse through the list to find the first value greater than or equal to the root. This marks the start of the right subtree.
-#    - The elements before this value form the left subtree, while the elements from this point form the right subtree.
+# 3. The base case for recursion is set: if the input list is empty, return None, indicating no subtree to be constructed.
 
-# 4. **Recursive Subtree Construction**:
-#    - Use recursion to construct the left and right subtrees:
-#      a) The left subtree is built using the values smaller than the root.
-#      b) The right subtree is built using the values greater than or equal to the root.
+# 4. The first value in the list represents the root node of the BST, as per the pre-order traversal definition
+#    (Root -> Left Subtree -> Right Subtree). This value becomes the current root node of the BST.
 
-# 5. **Recursion Breakdown**:
-#    - The function recursively builds the left and right subtrees until all subtrees are constructed, combining them into the final BST.
+# 5. A variable 'rightSubtreeRootIndex' is initialized, assuming that the right subtree starts at the end of the list by default.
+#    This variable will be used to determine the starting index of the right subtree.
 
-# 6. **Time and Space Complexity**:
-#    - Worst-case time complexity is O(n^2) when the tree is skewed, and O(n log n) for a balanced tree.
-#    - Space complexity is O(n) due to the recursion stack used during construction.
-# """
+# 6. The function iterates over the remaining values in the list (after the root node) to find the first value greater than or 
+#    equal to the root node. This marks the start of the right subtree (since values in the right subtree are always greater 
+#    than or equal to the root in a BST).
+
+# 7. Once the index for the right subtree is found, the function recursively calls itself to construct the left subtree using
+#    the values before 'rightSubtreeRootIndex'. These values represent the left subtree in the pre-order traversal.
+
+# 8. Similarly, the function recursively calls itself to construct the right subtree using the values starting from 
+#    'rightSubtreeRootIndex'. These values represent the right subtree in the pre-order traversal.
+
+# 9. Once both the left and right subtrees are reconstructed, the function returns the root node with the reconstructed left 
+#    and right subtrees attached.
+
+# 10. Several test cases are created with predefined pre-order traversal values (preOrderTraversalValues1, 
+#    preOrderTraversalValues2, preOrderTraversalValues3) to test the reconstruction function.
+
+# 11. The 'reconstructBst' function is called for each test case to reconstruct the respective BSTs, which are stored in 
+#    variables (bst1, bst2, bst3).
+
+# 12. A helper function 'printInOrder' is defined to print the BST in in-order traversal (Left Subtree -> Root -> Right Subtree)
+#    for verifying correctness. This function recursively traverses the tree and prints node values in ascending order.
+
+# 13. The 'printInOrder' function is called for each reconstructed BST (bst1, bst2, bst3) to print their in-order traversal.
+#    This helps in verifying that the BSTs were correctly reconstructed based on the given pre-order traversal input.
 
 
 class BST:
@@ -42,7 +57,7 @@ class BST:
         self.left = left
         self.right = right
 
-
+# Function to reconstruct the BST from the preorder traversal values
 def reconstructBst(preOrderTraversalValues):
     # Base case: if the list is empty, return None (no subtree)
     if len(preOrderTraversalValues) == 0:
@@ -52,37 +67,40 @@ def reconstructBst(preOrderTraversalValues):
     currentValue = preOrderTraversalValues[0]
     
     # Index for the start of the right subtree; assume it starts at the end of the list
-    rightSubtreeRootIdx = len(preOrderTraversalValues)
+    rightSubtreeRootIndex = len(preOrderTraversalValues)
 
     # Find the index where the right subtree begins (where values are >= current root value)
-    for idx in range(1, len(preOrderTraversalValues)):
-        value = preOrderTraversalValues[idx]
+    for index in range(1, len(preOrderTraversalValues)):
+        value = preOrderTraversalValues[index]
         if value >= currentValue:
-            rightSubtreeRootIdx = idx
+            rightSubtreeRootIndex = index
             break
 
-    # Recursively reconstruct the left subtree from values before rightSubtreeRootIdx
-    leftSubtree = reconstructBst(preOrderTraversalValues[1:rightSubtreeRootIdx])
+    # Recursively reconstruct the left subtree from values before rightSubtreeRootIndex
+    leftSubtree = reconstructBst(preOrderTraversalValues[1:rightSubtreeRootIndex])
     
-    # Recursively reconstruct the right subtree from values starting at rightSubtreeRootIdx
-    rightSubtree = reconstructBst(preOrderTraversalValues[rightSubtreeRootIdx:])
+    # Recursively reconstruct the right subtree from values starting at rightSubtreeRootIndex
+    rightSubtree = reconstructBst(preOrderTraversalValues[rightSubtreeRootIndex:])
 
     # Return the constructed BST node with left and right subtrees
     return BST(currentValue, leftSubtree, rightSubtree)
 
-
-# Dummy data: pre-order traversal of a BST
-preOrderTraversalValues = [10, 5, 2, 5, 13, 11, 15]
-
-# Reconstruct BST from the pre-order traversal values
-bst = reconstructBst(preOrderTraversalValues)
-
-# Helper function to print BST in-order for checking correctness
-def printInOrder(node):
+# Helper function to print the BST structure in a readable format
+def printBst(node, level=0, side="root"):
     if node is not None:
-        printInOrder(node.left)
-        print(node.value, end=" ")
-        printInOrder(node.right)
+        print("    " * level + f"{side}: {node.value}")
+        printBst(node.left, level + 1, "left")
+        printBst(node.right, level + 1, "right")
 
-# Print the BST in in-order to verify the result
-printInOrder(bst)
+# Dummy data: Preorder traversal values of a BST
+preOrderTraversalValues = [10, 5, 2, 1, 5, 13, 14, 12]
+
+# Reconstruct the BST from the preorder traversal
+constructedBst = reconstructBst(preOrderTraversalValues)
+
+# Print the constructed BST
+printBst(constructedBst)
+
+
+
+
