@@ -26,7 +26,7 @@
     # - **Iterative Calculation**: At each step, we decide whether to include the current element based on the maximum sum of
     # previous selections, ensuring that no two adjacent elements are selected in the sum.
 
-def maxSubSetSumNoAdjacent(array):
+def maxSubsetSumNoAdjacent(array):
     # If the array is empty, return 0 as there are no elements to sum.
     if not len(array):
         return 0
@@ -54,4 +54,4 @@ def maxSubSetSumNoAdjacent(array):
 
 # Dummy data to test the function
 array = [3, 7, 4, 6, 5]
-print(maxSubSetSumNoAdjacent(array))  # Expected output: 13 (7 + 6)
+print(maxSubsetSumNoAdjacent(array))  # Expected output: 13 (7 + 6)
