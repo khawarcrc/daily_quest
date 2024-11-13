@@ -26,7 +26,7 @@ def riverSizes(matrix):
 
 def traverseNode(i, j, matrix, visited, sizes):
     currentRiverSize = 0  # Initialize river size counter
-    nodesToExplore = [[i, j]]  # Stack to explore nodes for current river
+    nodesToExplore = [[i, j]]  # Stack to explore nodes for current river depth first serach with stack
     
     while len(nodesToExplore):
         currentNode = nodesToExplore.pop()  # Get the current node
