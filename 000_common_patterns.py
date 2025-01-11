@@ -39,7 +39,10 @@ TABLE OF CONTENTS
 1. Prefix Sum Pattern
 2. Two Pointers Pattern
 3. Sliding Window Pattern
-
+4. Fast and Slow Pointers Pattern
+5. Linked List In-place Reversal
+6. Monotonic Stack Pattern
+7. Top-K Elements Pattern
 
 ----------------------------------------------------------------------
 1. PREFIX SUM PATTERN
@@ -155,4 +158,135 @@ def max_sum_subarray(arr, k):
 # Example:
 print("Sliding Window Example:", max_sum_subarray([1, 2, 3, 4, 5], 3))  # Output: 12
 
+
+"""
+----------------------------------------------------------------------
+4. FAST AND SLOW POINTERS PATTERN
+----------------------------------------------------------------------
+
+A) TECHNICAL EXPLANATION:
+Used to detect cycles or find middle nodes in linked lists or arrays.
+Two pointers move at different speeds; if they meet, a cycle exists.
+Time complexity O(n), space O(1).
+
+B) SIMPLE EXPLANATION:
+Think of two runners on a circular track — 
+if one is faster, they’ll eventually meet if the track loops.
+
+C) CODE:
+"""
+
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+
+def has_cycle(head):
+    # Initialize both pointers
+    slow = fast = head
+    # Move fast twice as quickly as slow
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        # If they meet, a cycle exists
+        if slow == fast:
+            return True
+    return False
+
+
+"""
+----------------------------------------------------------------------
+5. LINKED LIST IN-PLACE REVERSAL
+----------------------------------------------------------------------
+
+A) TECHNICAL EXPLANATION:
+Reverse the direction of pointers in a singly linked list using O(1) space.
+Maintain three pointers: prev, curr, next.
+Time complexity O(n), space O(1).
+
+B) SIMPLE EXPLANATION:
+Imagine flipping a chain of paperclips one by one so the direction reverses.
+
+C) CODE:
+"""
+
+
+def reverse_linked_list(head):
+    prev = None
+    curr = head
+    while curr:
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
+    return prev
+
+
+"""
+----------------------------------------------------------------------
+6. MONOTONIC STACK PATTERN
+----------------------------------------------------------------------
+
+A) TECHNICAL EXPLANATION:
+Used for finding next greater/smaller elements efficiently.
+The stack maintains elements in a monotonic order.
+Time complexity O(n).
+
+B) SIMPLE EXPLANATION:
+Think of stacking boxes in decreasing height order, 
+and whenever a taller one appears, you remove smaller ones.
+
+C) CODE:
+"""
+
+
+def next_greater_elements(nums):
+    res = [-1] * len(nums)
+    stack = []
+    for i, n in enumerate(nums):
+        while stack and nums[stack[-1]] < n:
+            res[stack.pop()] = n
+        stack.append(i)
+    return res
+
+
+# Example:
+print(
+    "Monotonic Stack Example:", next_greater_elements([2, 1, 5, 3])
+)  # Output: [5, 5, -1, -1]
+
+
+"""
+----------------------------------------------------------------------
+7. TOP-K ELEMENTS PATTERN
+----------------------------------------------------------------------
+
+A) TECHNICAL EXPLANATION:
+Find the top k largest or smallest elements using a heap.
+Min-heap tracks the k largest; max-heap tracks the k smallest.
+Time complexity O(n log k).
+
+B) SIMPLE EXPLANATION:
+Think of maintaining a scoreboard of top 3 players — 
+you only keep the best few at any time.
+
+C) CODE:
+"""
+
+
+def top_k_elements(nums, k):
+    heap = nums[:k]
+    heapq.heapify(heap)
+    for n in nums[k:]:
+        if n > heap[0]:
+            heapq.heappushpop(heap, n)
+    return heap
+
+
+# Example:
+print(
+    "Top-K Elements Example:", top_k_elements([3, 1, 5, 12, 2, 11], 3)
+)  # Output: [5, 11, 12]
 
