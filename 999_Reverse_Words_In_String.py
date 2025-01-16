@@ -1,5 +1,3 @@
-# reverse_words_in_string.py
-
 """
 Problem Statement:
 ------------------
