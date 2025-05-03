@@ -58,7 +58,7 @@ def calculateProbability(target, hand, memo):
     return total
 
 
-# ✅ Dummy Data to test the function
+# Dummy Data to test the function
 target_score = 21
 starting_hand = [5, 3]  # Initial hand with sum 8; need to find ways to reach 13 more
 
